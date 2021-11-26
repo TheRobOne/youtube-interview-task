@@ -6,6 +6,7 @@ function App() {
 
   useEffect(() => {
     const fetchData = async () => {
+      // I am aware that it isn't secure way for passing the api key. Normally I would use some bff to hide the key and also restrict the key for the specific domain
       const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=random&key=${process.env.REACT_APP_API_KEY}`;
       const result = await axios.get(url);
 
