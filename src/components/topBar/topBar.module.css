@@ -1,0 +1,95 @@
+.container {
+    height: 56px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    box-shadow: 0 2px 3px grey;
+}
+
+.logo {
+    height: 40%;
+}
+
+.rightContainer {
+    display: flex;
+    align-items: center;
+    width: 20%;
+    justify-content: space-between;
+}
+
+.button {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.avatar {
+    height: 30px;
+    width: 30px;
+}
+
+.desktop {
+    display: none;
+}
+
+@media only screen and (min-width: 768px) {
+    .container {
+        padding: 0 50px;
+    }
+
+    .rightContainer {
+        width: 15%;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .container {
+        padding: 0 80px;
+    }
+
+    .rightContainer {
+        width: 10%;
+    }
+}
+
+@media only screen and (min-width: 1680px) {
+    .mobile {
+        display: none;
+    }
+
+    .desktop {
+        display: flex;
+    }
+
+    .container {
+        padding: 0 100px;
+    }
+
+    .searchContainer {
+        width: 50%;
+        display: flex;
+        align-items: center;
+    }
+
+    .form {
+        width: 100%;
+    }
+
+    .input {
+        width: 95%;
+        padding: 5px 15px;
+        outline: none;
+        height: 25px;
+    }
+
+    .rightContainer {
+        width: 5%;
+    }
+}

@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import TopBar from './components/topBar/TopBar';
+import styles from './app.module.css';
 
 function App() {
   const [videos, setVideos] = useState([]);
@@ -19,8 +21,8 @@ function App() {
   console.log('videos: ', videos);
 
   return (
-    <div>
-
+    <div className={styles.container}>
+      <TopBar></TopBar>
     </div>
   );
 }
