@@ -46,4 +46,12 @@
         margin-left: 30px;
         width: 70%;
     }
+
+    .title {
+        font-size: 1.25rem;
+    }
+
+    .description {
+        font-size: 0.75rem;
+    }
 }
