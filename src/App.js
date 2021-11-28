@@ -1,6 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import TopBar from './components/topBar/TopBar';
+import MainArea from './components/mainArea/MainArea';
+import SideBar from './components/sideBar/SideBar';
 import styles from './app.module.css';
 
 function App() {
@@ -14,12 +16,16 @@ function App() {
     const url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${text}&key=${process.env.REACT_APP_API_KEY}`;
     const result = await axios.get(url);
 
-    setVideos(result.data);
+    setVideos(result.data?.items);
   }
 
   return (
     <div className={styles.container}>
       <TopBar search={search}/>
+      <div className={styles.contentContainer}>
+        <MainArea video={videos[0] || null}/>
+        <SideBar/>
+      </div>
     </div>
   );
 }
