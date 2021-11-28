@@ -6,25 +6,31 @@ import youtubeLogo from '../../assets/YouTube.svg';
 import avatarIcon from '../../assets/avatar.svg';
 import styles from './topBar.module.css';
 
-function TopBar() {
+function TopBar(props) {
     const [isSearch, setSearch] = useState(false);
+    const [searchText, setSearchText] = useState('');
 
-
+    const search = (e) => {
+        if (e) {
+            e.preventDefault();
+        }
+        props.search(searchText);
+    }
 
     return (
         <div className={styles.container}>
             <img src={youtubeLogo} className={styles.logo} alt='logo'/>
             <div className={classnames(styles.desktop, styles.searchContainer)}>
-                <form className={styles.form}>
+                <form className={styles.form} onSubmit={(e) => search(e)}>
                     <input
                         type="text"
                         className={styles.input}
                         placeholder="Search"
+                        value={searchText}
+                        onChange={(e) => setSearchText(e.target.value)}
                     />
+                    <input type="image" src={searchIcon} alt="Submit Form" className={styles.submitButton}/>
                 </form>
-                <button className={styles.button}>
-                    <img src={searchIcon} alt='search'/> 
-                </button>
             </div>
             <div className={styles.rightContainer}>
                 <button className={classnames(styles.mobile, styles.button)} onClick={() => setSearch(prevState => !prevState)}>
@@ -33,7 +39,13 @@ function TopBar() {
                 <img src={avatarIcon} className={styles.avatar} alt='avatar'/>
             </div>
             {
-                isSearch && <SearchModal closeModal={() => setSearch(false)}/>
+                isSearch && 
+                <SearchModal
+                    closeModal={() => setSearch(false)}
+                    search={search}
+                    searchText={searchText}
+                    setSearchText={(e) => setSearchText(e.target.value)}
+                />
             }
         </div>
     )

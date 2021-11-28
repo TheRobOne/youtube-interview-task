@@ -24,6 +24,9 @@
 
 .form {
     width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .input {
@@ -32,8 +35,13 @@
     border-bottom: 1px solid black;
     color: black;
     background-color: transparent;
-    width: 100%;
+    width: 85%;
     padding: 0 0 5px 2px;
+}
+
+.submitButton {
+    height: 20px;
+    width: 20px;
 }
 
 .button {
@@ -50,6 +58,10 @@
 
     .form {
         width: 80%;
+    }
+
+    .input {
+        width: 95%;
     }
 }
 

@@ -12,13 +12,6 @@ function SearchModal(props) {
         props.closeModal();
     }
 
-    const search = (e) => {
-        if (e) {
-            e.preventDefault();
-        }
-        console.log('test');
-    }
-
     return (
         <div className={styles.container} onClick={(e) => clickContainer(e)}>
             <div className={styles.searchBar}>
@@ -29,20 +22,16 @@ function SearchModal(props) {
                         alt="go back"
                     />
                 </button>
-                <form className={styles.form} onSubmit={(e) => search(e)}>
+                <form className={styles.form} onSubmit={(e) => props.search(e)}>
                     <input
                         type="text"
                         className={styles.input}
                         placeholder="Search YouTube"
+                        value={props.searchText}
+                        onChange={props.setSearchText}
                     />
+                     <input type="image" src={searchIcon} alt="Submit Form" className={styles.submitButton}/>
                 </form>
-                <button className={styles.button} onClick={() => search()}>
-                    <img
-                        src={searchIcon}
-                        className={styles.icon}
-                        alt="search"
-                    />
-                </button>
                 <img
                     src={microphoneIcon}
                     className={styles.icon}
