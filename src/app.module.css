@@ -9,3 +9,9 @@
     flex-wrap: wrap;
     justify-content: space-between;
 }
+
+.loading {
+    margin-left: 50%;
+    margin-top: 10%;
+    transform: translate(-50%, -50%); 
+}
