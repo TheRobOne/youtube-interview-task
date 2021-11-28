@@ -29,6 +29,7 @@ function SearchModal(props) {
                         placeholder="Search YouTube"
                         value={props.searchText}
                         onChange={props.setSearchText}
+                        autoFocus
                     />
                      <input type="image" src={searchIcon} alt="Submit Form" className={styles.submitButton}/>
                 </form>
