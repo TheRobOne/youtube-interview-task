@@ -13,7 +13,7 @@ function SearchModal(props) {
     }
 
     return (
-        <div className={styles.container} onClick={(e) => clickContainer(e)}>
+        <div className={styles.container} onClick={(e) => clickContainer(e)} data-cy="modal">
             <div className={styles.searchBar}>
                 <button className={styles.button} onClick={props.closeModal}>
                     <img
