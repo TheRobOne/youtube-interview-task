@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import TopBar from './components/topBar/TopBar';
 import MainArea from './components/mainArea/MainArea';
@@ -7,6 +7,11 @@ import styles from './app.module.css';
 
 function App() {
   const [videos, setVideos] = useState([]);
+  const [currentVideo, setCurrentVideo] = useState();
+
+  useEffect(() => {
+    setCurrentVideo(videos[0]);
+  }, [videos])
 
   const search = async (text) => {
     if (text === '') {
@@ -23,8 +28,8 @@ function App() {
     <div className={styles.container}>
       <TopBar search={search}/>
       <div className={styles.contentContainer}>
-        <MainArea video={videos[0] || null}/>
-        <SideBar/>
+        <MainArea video={currentVideo || null}/>
+        <SideBar videos={videos} setCurrentVideo={setCurrentVideo}/>
       </div>
     </div>
   );
