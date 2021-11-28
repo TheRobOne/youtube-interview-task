@@ -15,6 +15,7 @@ function TopBar(props) {
             e.preventDefault();
         }
         props.search(searchText);
+        setSearch(false);
     }
 
     return (
