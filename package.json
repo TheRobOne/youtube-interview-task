@@ -14,6 +14,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
+    "react-router-dom": "6",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.0.1"
   },
@@ -23,7 +24,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "cypress:open": "cypress open",
-    "start-one-command": "yarn install && yarn start",
+    "start-one-command": "npm install && npm start",
     "docker-build-run": "docker rm -f youtube-interview-task && docker build -t youtube-interview-task . && docker run -p 3000:3000 --name youtube-interview-task -d youtube-interview-task"
   },
   "eslintConfig": {

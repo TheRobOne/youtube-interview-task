@@ -1,5 +1,8 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import classnames from 'classnames';
+import { Link } from "react-router-dom";
+import { userSelector } from '../../slices/user';
 import SearchModal from '../searchModal/SearchModal';
 import searchIcon from '../../assets/search.svg';
 import youtubeLogo from '../../assets/YouTube.svg';
@@ -9,6 +12,7 @@ import styles from './topBar.module.css';
 function TopBar(props) {
     const [isSearch, setSearch] = useState(false);
     const [searchText, setSearchText] = useState('');
+    const { user } = useSelector(userSelector);
 
     const search = (e) => {
         if (e) {
@@ -38,7 +42,11 @@ function TopBar(props) {
                 <button className={classnames(styles.mobile, styles.button)} onClick={() => setSearch(prevState => !prevState)} data-cy="topbar-modal-button">
                     <img src={searchIcon} alt='search modal'/> 
                 </button>
-                <img src={avatarIcon} className={styles.avatar} alt='avatar'/>
+                {
+                    user ?
+                    <img src={avatarIcon} className={styles.avatar} alt='avatar'/> :
+                    <Link to="/login" className={styles.link}>Login</Link>
+                }
             </div>
             {
                 isSearch && 
